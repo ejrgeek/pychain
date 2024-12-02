@@ -33,7 +33,7 @@ class Blockchain(metaclass=BlockchainSingleton):
     def __create_genesis_block(self):
         payload = {
             "sequency": 0,
-            "timestamp": datetime.now().timestamp(),
+            "timestamp": int(datetime.now().timestamp()),
             "data": "Genesis Block",
             "previous_hash": "",
         }
@@ -60,7 +60,7 @@ class Blockchain(metaclass=BlockchainSingleton):
             "sequency": self.__get_last_block()["payload"]["sequency"] + 1,
             "data": data,
             "previous_hash": self.__get_hash_last_block(),
-            "timestamp": datetime.now().timestamp(),
+            "timestamp": int(datetime.now().timestamp()),
         }
 
         print(f"Block #{payload}")
